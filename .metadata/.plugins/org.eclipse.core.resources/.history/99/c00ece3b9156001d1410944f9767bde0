@@ -23,11 +23,15 @@ import database.Database;
 
 import javax.swing.ImageIcon;
 @SuppressWarnings("serial")
-public class LoginPageGUI extends GUIbase {
+public class LoginPageGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordTF;
 	private JTextField usernameTF;
+	
+	private static Font fontLabelSmall = new Font("Tahoma", Font.BOLD, 12);
+	private static Font fontLabelLarge = new Font("Times New Roman", Font.PLAIN, 14);
+	private static Font fontButton = new Font("Tahoma", Font.PLAIN, 13);
 
 	/**
 	 * Create the frame.

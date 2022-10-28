@@ -23,11 +23,12 @@ import database.Database;
 
 import javax.swing.ImageIcon;
 @SuppressWarnings("serial")
-public class LoginPageGUI extends GUIbase {
+public class LoginPageGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordTF;
 	private JTextField usernameTF;
+	
 
 	/**
 	 * Create the frame.
@@ -45,7 +46,7 @@ public class LoginPageGUI extends GUIbase {
 		JLabel lblSignIn = new JLabel("<HTML>Sign Up</HTML>");
 		lblSignIn.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblSignIn.setForeground(SystemColor.activeCaptionBorder);
-		lblSignIn.setFont(fontLabelLarge);
+		lblSignIn.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblSignIn.setBounds(188, 232, 53, 20);
 		contentPane.add(lblSignIn);
 		lblSignIn.addMouseListener(new MouseAdapter() {
@@ -69,7 +70,7 @@ public class LoginPageGUI extends GUIbase {
 		});
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setFont(fontButton);
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnLogin.setBackground(Color.GRAY);
 		btnLogin.setForeground(SystemColor.text);
 		btnLogin.setBounds(50, 192, 171, 30);
@@ -122,7 +123,7 @@ public class LoginPageGUI extends GUIbase {
 		contentPane.add(usernameTF);
 		
 		JLabel lblUsernameid = new JLabel("Username/ID");
-		lblUsernameid.setFont(fontLabelSmall);
+		lblUsernameid.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblUsernameid.setForeground(Color.WHITE);
 		lblUsernameid.setHorizontalAlignment(SwingConstants.LEFT);
 		lblUsernameid.setBackground(Color.WHITE);
@@ -130,7 +131,7 @@ public class LoginPageGUI extends GUIbase {
 		contentPane.add(lblUsernameid);
 		
 		JLabel label_2 = new JLabel("Password");
-		label_2.setFont(fontLabelSmall);
+		label_2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		label_2.setForeground(Color.WHITE);
 		label_2.setBounds(43, 120, 88, 14);
 		contentPane.add(label_2);
@@ -150,14 +151,14 @@ public class LoginPageGUI extends GUIbase {
 		JLabel lblClose = new JLabel("Close");
 		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblClose.setForeground(SystemColor.activeCaptionBorder);
-		lblClose.setFont(fontLabelLarge);
+		lblClose.setFont(new Font("Times New Roman", Font.PLAIN,  14));
 		lblClose.setBounds(188, 24, 53, 20);
 		lblClose.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				dispose();
 			}
-			@Override
+			@Overrid
 			public void mouseEntered(MouseEvent e) {
 				lblClose.setText("<HTML><U><B>Close</B></U></HTML>");
 				lblClose.setForeground(Color.RED);

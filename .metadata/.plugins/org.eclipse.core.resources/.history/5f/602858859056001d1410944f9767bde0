@@ -23,11 +23,14 @@ import database.Database;
 
 import javax.swing.ImageIcon;
 @SuppressWarnings("serial")
-public class LoginPageGUI extends GUIbase {
+public class LoginPageGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordTF;
 	private JTextField usernameTF;
+	
+	private static Font fontLabelSmall = new Font("Tahoma", Font.BOLD, 12);
+	private static Font fontLabelLarge = new Font("Times New Roman", Font.PLAIN, 14);
 
 	/**
 	 * Create the frame.
@@ -45,7 +48,7 @@ public class LoginPageGUI extends GUIbase {
 		JLabel lblSignIn = new JLabel("<HTML>Sign Up</HTML>");
 		lblSignIn.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblSignIn.setForeground(SystemColor.activeCaptionBorder);
-		lblSignIn.setFont(fontLabelLarge);
+		lblSignIn.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblSignIn.setBounds(188, 232, 53, 20);
 		contentPane.add(lblSignIn);
 		lblSignIn.addMouseListener(new MouseAdapter() {
@@ -69,7 +72,7 @@ public class LoginPageGUI extends GUIbase {
 		});
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setFont(fontButton);
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnLogin.setBackground(Color.GRAY);
 		btnLogin.setForeground(SystemColor.text);
 		btnLogin.setBounds(50, 192, 171, 30);
@@ -150,7 +153,7 @@ public class LoginPageGUI extends GUIbase {
 		JLabel lblClose = new JLabel("Close");
 		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblClose.setForeground(SystemColor.activeCaptionBorder);
-		lblClose.setFont(fontLabelLarge);
+		lblClose.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblClose.setBounds(188, 24, 53, 20);
 		lblClose.addMouseListener(new MouseAdapter() {
 			@Override

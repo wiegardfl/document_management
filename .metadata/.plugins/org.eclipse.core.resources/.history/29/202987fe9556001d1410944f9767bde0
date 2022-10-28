@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")
-public class ProfileGUI extends GUIbase {
+public class ProfileGUI extends JFrame {
 
 	
 	private JPanel contentPane;
@@ -31,7 +31,6 @@ public class ProfileGUI extends GUIbase {
 	private JLabel lblDepartment;
 	private JLabel lblYear;
 	private JLabel yearLBL;
-	final Font fontProfileLabel = new Font("Dialog", Font.PLAIN, 12);
 
 	/**
 	 * Create the frame.
@@ -49,7 +48,7 @@ public class ProfileGUI extends GUIbase {
 		JLabel goback = new JLabel("<HTML>Previous</HTML>");
 		goback.setHorizontalAlignment(SwingConstants.TRAILING);
 		goback.setForeground(SystemColor.activeCaptionBorder);
-		goback.setFont(fontLabelLarge);
+		goback.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		goback.setBounds(352, 310, 64, 20);
 		contentPane.add(goback);
 		goback.addMouseListener(new MouseAdapter() {
@@ -73,25 +72,25 @@ public class ProfileGUI extends GUIbase {
 		});
 		
 		lblDepartment = new JLabel("Designation");
-		lblDepartment.setFont(fontLabelSmall);
+		lblDepartment.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblDepartment.setForeground(Color.WHITE);
 		lblDepartment.setBounds(52, 215, 105, 24);
 		contentPane.add(lblDepartment);
 		
 		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setFont(fontLabelSmall);
+		lblLastName.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblLastName.setForeground(Color.WHITE);
 		lblLastName.setBounds(52, 115, 87, 24);
 		contentPane.add(lblLastName);
 		
 		JLabel lblId = new JLabel("Username/ID");
-		lblId.setFont(fontLabelSmall);
+		lblId.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblId.setForeground(Color.WHITE);
 		lblId.setBounds(52, 165, 105, 24);
 		contentPane.add(lblId);
 		
 		JLabel lblName = new JLabel("First Name");
-		lblName.setFont(fontLabelSmall);
+		lblName.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblName.setForeground(Color.WHITE);
 		lblName.setBounds(52, 65, 87, 24);
 		contentPane.add(lblName);
@@ -99,7 +98,7 @@ public class ProfileGUI extends GUIbase {
 		JLabel lblClose = new JLabel("Close");
 		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblClose.setForeground(SystemColor.activeCaptionBorder);
-		lblClose.setFont(fontLabelLarge);
+		lblClose.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblClose.setBounds(352, 23, 53, 20);
 		lblClose.addMouseListener(new MouseAdapter() {
 			@Override

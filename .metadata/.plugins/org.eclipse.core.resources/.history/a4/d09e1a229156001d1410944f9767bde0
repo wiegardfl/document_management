@@ -1,0 +1,8 @@
+package GUI;
+
+final class GUIbase {
+
+	private GUIbase() {}
+	
+	
+}

@@ -31,7 +31,6 @@ public class ProfileGUI extends GUIbase {
 	private JLabel lblDepartment;
 	private JLabel lblYear;
 	private JLabel yearLBL;
-	final Font fontProfileLabel = new Font("Dialog", Font.PLAIN, 12);
 
 	/**
 	 * Create the frame.
@@ -99,7 +98,7 @@ public class ProfileGUI extends GUIbase {
 		JLabel lblClose = new JLabel("Close");
 		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblClose.setForeground(SystemColor.activeCaptionBorder);
-		lblClose.setFont(fontLabelLarge);
+		lblClose.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		lblClose.setBounds(352, 23, 53, 20);
 		lblClose.addMouseListener(new MouseAdapter() {
 			@Override
