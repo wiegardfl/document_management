@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\fwiegard\Studium\2022_23 WiSe\Softwaredesign\Document-Management-master\.metadata\.plugins\org.eclipse.jdt.core
+2722008904.index
+405265988.index
+1865797976.index
+2972297813.index
