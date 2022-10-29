@@ -27,7 +27,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
-public class MoreDocumentDetailsGUI extends JFrame {
+public class MoreDocumentDetailsGUI extends JFrameBaseForGUI {
 
 	private JPanel contentPane;
 	private JLabel creatorLBL;
@@ -59,7 +59,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		JLabel lblClose = new JLabel("Close");
 		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblClose.setForeground(Color.BLACK);
-		lblClose.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblClose.setFont(Font_TimesNewRoman_Plain_Size14);
 		lblClose.setBounds(246, 11, 53, 20);
 		lblClose.addMouseListener(new MouseAdapter() {
 			@Override
@@ -85,7 +85,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		noticePanel.setLayout(null);
 		
 		JLabel lblNewLable = new JLabel("Valid From");
-		lblNewLable.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLable.setFont(Font_Tahoma_Bold_Size11);
 		lblNewLable.setEnabled(true);
 		lblNewLable.setBounds(10, 11, 115, 14);
 		noticePanel.add(lblNewLable);
@@ -99,13 +99,13 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		noticePanel.add(validtillLBL);
 		
 		JLabel lbllable3 = new JLabel("Valid Till");
-		lbllable3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lbllable3.setFont(Font_Tahoma_Bold_Size11);
 		lbllable3.setEnabled(true);
 		lbllable3.setBounds(164, 11, 115, 14);
 		noticePanel.add(lbllable3);
 		
 		JLabel lblNewLabel_3 = new JLabel("Targeted Audience");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_3.setFont(Font_Tahoma_Bold_Size11);
 		lblNewLabel_3.setBounds(10, 51, 115, 14);
 		noticePanel.add(lblNewLabel_3);
 		
@@ -141,7 +141,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		JLabel lblType = new JLabel("Publication Date");
 		lblType.setBounds(10, 0, 132, 14);
 		publciationPanel.add(lblType);
-		lblType.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblType.setFont(Font_Tahoma_Bold_Size11);
 		
 		lblDocDate = new JLabel("New label");
 		lblDocDate.setBounds(35, 20, 257, 14);
@@ -150,14 +150,14 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		JLabel lblHindex = new JLabel("H-index");
 		lblHindex.setBounds(10, 40, 46, 14);
 		publciationPanel.add(lblHindex);
-		lblHindex.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblHindex.setFont(Font_Tahoma_Bold_Size11);
 		
 		hindexLBL = new JLabel("New label");
 		hindexLBL.setBounds(35, 60, 107, 14);
 		publciationPanel.add(hindexLBL);
 		
 		JLabel lblNewLabel_1 = new JLabel("Journal in which published");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_1.setFont(Font_Tahoma_Bold_Size11);
 		lblNewLabel_1.setBounds(10, 125, 153, 14);
 		publciationPanel.add(lblNewLabel_1);
 		
@@ -167,7 +167,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		publciationPanel.add(jounalLBL);
 		
 		JLabel lblImpactFactorOf = new JLabel("Impact Factor of Journal");
-		lblImpactFactorOf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblImpactFactorOf.setFont(Font_Tahoma_Bold_Size11);
 		lblImpactFactorOf.setBounds(10, 80, 153, 14);
 		publciationPanel.add(lblImpactFactorOf);
 		
@@ -176,7 +176,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		publciationPanel.add(impactfactorLBL);
 		
 		JLabel lblNewLabel_4 = new JLabel("Number of Citations");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_4.setFont(Font_Tahoma_Bold_Size11);
 		lblNewLabel_4.setForeground(Color.BLACK);
 		lblNewLabel_4.setBounds(169, 40, 138, 14);
 		publciationPanel.add(lblNewLabel_4);
@@ -187,7 +187,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		contentPane.add(lblClose);
 		
 		JLabel label = new JLabel("Title:");
-		label.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label.setFont(Font_Tahoma_Bold_Size11);
 		label.setBounds(10, 33, 42, 14);
 		contentPane.add(label);
 		
@@ -198,7 +198,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		contentPane.add(titleLBL);
 		
 		JLabel label_2 = new JLabel("Creator/Uploader:");
-		label_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_2.setFont(Font_Tahoma_Bold_Size11);
 		label_2.setBounds(10, 93, 108, 14);
 		contentPane.add(label_2);
 		
@@ -208,7 +208,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		contentPane.add(creatorLBL);
 		
 		JLabel lblDateUploaded = new JLabel("Date Uploaded:");
-		lblDateUploaded.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDateUploaded.setFont(Font_Tahoma_Bold_Size11);
 		lblDateUploaded.setBounds(10, 133, 94, 14);
 		contentPane.add(lblDateUploaded);
 		
@@ -234,7 +234,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 		contentPane.add(btnViewDocument);
 		
 		typedetailsLBL = new JLabel(doc.getDoc_type()+" Details");
-		typedetailsLBL.setFont(new Font("Tahoma", Font.BOLD, 13));
+		typedetailsLBL.setFont(Font_Tahoma_Bold_Size13);
 		typedetailsLBL.setHorizontalAlignment(SwingConstants.CENTER);
 		typedetailsLBL.setBounds(65, 11, 190, 18);
 		contentPane.add(typedetailsLBL);
@@ -259,7 +259,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 				System.out.println(d);
 				facultyPanel.add(newlabel);
 				newlabel.setBounds(2, y1+14, 123, 17);
-				newlabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				newlabel.setFont(Font_Tahoma_Plain_Size11);
 				newlabel.setForeground(Color.BLACK);
 				newlabel.setBackground(Color.LIGHT_GRAY);
 				newlabel.setHorizontalAlignment(SwingConstants.LEFT);
@@ -271,7 +271,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 				System.out.println(b);
 				branchPanel.add(newlabel);
 				newlabel.setBounds(2, 14+y2, 99, 17);
-				newlabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				newlabel.setFont(Font_Tahoma_Plain_Size11);
 				newlabel.setForeground(Color.BLACK);
 				newlabel.setBackground(Color.LIGHT_GRAY);
 				newlabel.setHorizontalAlignment(SwingConstants.LEFT);
@@ -283,7 +283,7 @@ public class MoreDocumentDetailsGUI extends JFrame {
 				System.out.println(y);
 				yearPanel.add(newlabel);
 				newlabel.setBounds(2, y3+14, 81, 17);
-				newlabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				newlabel.setFont(Font_Tahoma_Plain_Size11);
 				newlabel.setForeground(Color.BLACK);
 				newlabel.setBackground(Color.LIGHT_GRAY);
 				newlabel.setHorizontalAlignment(SwingConstants.LEFT);
