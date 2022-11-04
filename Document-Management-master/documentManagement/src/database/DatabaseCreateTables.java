@@ -1,20 +1,43 @@
 package database;
 
 import java.sql.SQLException;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.*;
 
 public class DatabaseCreateTables {
 	private Statement st=null;
+	private String targetFolder = "/home/bravoechonov/eclipse-workspace/document_management/Document-Management-master/documentManagement/src/database/";
 	
 	public DatabaseCreateTables(Statement st) {
 		this.st=st;
+	}
+	
+	private String readSqlFile(String sqlFileToRead) // könnte in SQL-Helferklasse ausgelagert werden
+	{
+		String queryString = "print 'Error reading SQL-File'";
+		try {
+			File sqlFile = new File(targetFolder + "Table_Profile.sql");
+			Scanner scanner = new Scanner(sqlFile);
+			
+			while (scanner.hasNextLine()) {
+				queryString = scanner.nextLine();
+			}
+			scanner.close();
+	    }
+		catch (FileNotFoundException e) {
+	    	System.out.println("Error reading SQL-File");
+	    }
+		return queryString;
 	}
 	
 	/**
 	 * Creating Profile Table
 	 */
 	public void createProfileTable() throws SQLException {
-		st.execute("create table if not exists Profile(firstname varchar(20),lastname varchar(20),id varchar(20) primary key,password varchar(35),type varchar(20))");
+		String query = readSqlFile("Table_Profile.sql");
+		st.execute(query);
 		System.out.println("Profile Table Created/Already Present");
 	} 
 	
