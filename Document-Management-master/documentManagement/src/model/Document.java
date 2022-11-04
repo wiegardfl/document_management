@@ -1,5 +1,15 @@
 package model;
 
+class CommonDocumentProperties // Klasse würde in eigenes .java File ausgelagert werden und könnte noch mehr Common Properties halten
+{
+	public int doc_id;
+	public String user_id;
+	public String title;
+	public String doc_type;
+	public String uploaded_date;
+	public String extension;
+}
+
 public class Document {
 	private int doc_id;
 	private String user_id;
@@ -7,13 +17,13 @@ public class Document {
 	private String doc_type;
 	private String uploaded_date;
 	private String extension;
-	public Document(int doc_id, String user_id, String title, String doc_type, String uploaded_date,String extension) {
-		this.doc_id = doc_id;
-		this.user_id = user_id;
-		this.title = title;
-		this.doc_type = doc_type;
-		this.uploaded_date = uploaded_date;
-		this.extension=extension;
+	public Document(CommonDocumentProperties docProps) {
+		this.doc_id = docProps.doc_id;
+		this.user_id = docProps.user_id;
+		this.title = docProps.title;
+		this.doc_type = docProps.doc_type;
+		this.uploaded_date = docProps.uploaded_date;
+		this.extension= docProps.extension;
 	}
 	public Document() {
 		doc_id=0;
