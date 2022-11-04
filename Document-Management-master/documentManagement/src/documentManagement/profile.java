@@ -149,7 +149,7 @@ public class profile extends JFrame {
 		contentPane.add(lblClose);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\logo.png"));
+		label.setIcon(new ImageIcon("src\\logo.png"));
 		label.setBounds(15, 9, 87, 32);
 		contentPane.add(label);
 	}

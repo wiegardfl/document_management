@@ -151,7 +151,7 @@ public class Dashboard extends JFrame {
 		label = new JLabel("");
 		label.setBounds(10, 4, 82, 30);
 		panel.add(label);
-		label.setIcon(new ImageIcon("D:\\logo.png"));
+		label.setIcon(new ImageIcon("src\\logo.png"));
 		
 		tglbtnUploadANew = new JToggleButton("              Upload a new Document");
 		tglbtnUploadANew.addItemListener(new ItemListener() {

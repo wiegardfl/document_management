@@ -17,14 +17,58 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JSeparator;
 import java.awt.SystemColor;
+
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
 import database.Database;
 
 import javax.swing.ImageIcon;
 @SuppressWarnings("serial")
-public class LoginPageGUI extends GUIbase {
+public class LoginPageGUI extends JFrame {
+	private static final int 
+	windowOffset = 100,
+	windowWidth = 273,
+	windowHeight = 277,
+	separatorWidth = 178,
+	separatorHeight = 2,
+	tfLblWidth = 88,
+	tfLblHeight = 14,
+	textfieldWidth = 171,
+	textfieldHeight = 20,
+	textFieldOffsetX = 46,
+	textFieldOffsetY = 78,
+	pwFieldOffsetY = 139,
+	tfLabelOffsetX = 43,
+	unameLblOffsetY = 59,
+	pwLblOffSetY = 120,
+	usernameColumns = 10,
+	lblOffsetX = 188,
+	lblWidth = 53,
+	lblHeight = 20,
+	lblSignInOffsetY = 232,
+	lblCloseOffsetY = 24,
+	imageWidth = 19, 
+	imageHeight = 13, 
+	imageOffsetX = 82,
+	imageOffsetY = 30,
+	sep1OffsetX = 41,
+	sep1OffSetY = 101,
+	sep2OffSetX = 44,
+	sep2OffSetY = 162;
 
+	private static final Color 
+	standardBG = Color.DARK_GRAY,
+	standardFG = Color.WHITE,
+	separaratorBG = standardBG,
+	separatorFG = standardBG,
+	textfieldBG = standardBG,
+	textfieldFG = standardFG,
+	textfieldCaretColor = standardFG,
+	tfLabelFG = standardFG;
+	
+	private static final Border textfieldBorder = null;
+	
 	private JPanel contentPane;
 	private JPasswordField passwordTF;
 	private JTextField usernameTF;
@@ -35,41 +79,18 @@ public class LoginPageGUI extends GUIbase {
 	public LoginPageGUI() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 273, 277);
+		setBounds(windowOffset, windowOffset, windowWidth, windowHeight);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new LineBorder(Color.DARK_GRAY, 1, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblSignIn = new JLabel("<HTML>Sign Up</HTML>");
-		lblSignIn.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblSignIn.setForeground(SystemColor.activeCaptionBorder);
-		lblSignIn.setFont(fontLabelLarge);
-		lblSignIn.setBounds(188, 232, 53, 20);
-		contentPane.add(lblSignIn);
-		lblSignIn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				SignUpGUI signup = new SignUpGUI();
-				signup.setVisible(true);
-				setVisible(false);
-				dispose();
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblSignIn.setText("<HTML><U><B>Sign Up</B></U></HTML>");
-				lblSignIn.setForeground(SystemColor.activeCaption);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblSignIn.setText("<HTML>Sign Up</HTML>");
-				lblSignIn.setForeground(SystemColor.activeCaptionBorder);
-			}
-		});
+		JLabel lblSignIn = new JLabel("Sign Up");
+		addLabel(new SignUpMouseAdapter(lblSignIn, SystemColor.activeCaption), lblSignInOffsetY);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setFont(fontButton);
+		btnLogin.setFont(BaseGUI.fontMedium);
 		btnLogin.setBackground(Color.GRAY);
 		btnLogin.setForeground(SystemColor.text);
 		btnLogin.setBounds(50, 192, 171, 30);
@@ -104,75 +125,100 @@ public class LoginPageGUI extends GUIbase {
 			}
 		});
 		
-		passwordTF = new JPasswordField();
-		passwordTF.setForeground(Color.WHITE);
-		passwordTF.setBackground(Color.DARK_GRAY);
-		passwordTF.setBounds(46, 139, 171, 20);
-		passwordTF.setBorder(null);
-		passwordTF.setCaretColor(Color.WHITE);
-		contentPane.add(passwordTF);
+		addTextField(new JPasswordField(), pwFieldOffsetY);
 		
 		usernameTF = new JTextField();
-		usernameTF.setForeground(Color.WHITE);
-		usernameTF.setBackground(Color.DARK_GRAY);
-		usernameTF.setColumns(10);
-		usernameTF.setBounds(46, 78, 171, 20);
-		usernameTF.setBorder(null);
-		usernameTF.setCaretColor(Color.WHITE);
-		contentPane.add(usernameTF);
+		usernameTF.setColumns(usernameColumns);
+		addTextField(usernameTF, textFieldOffsetY);
 		
 		JLabel lblUsernameid = new JLabel("Username/ID");
-		lblUsernameid.setFont(fontLabelSmall);
-		lblUsernameid.setForeground(Color.WHITE);
 		lblUsernameid.setHorizontalAlignment(SwingConstants.LEFT);
 		lblUsernameid.setBackground(Color.WHITE);
-		lblUsernameid.setBounds(43, 59, 88, 14);
-		contentPane.add(lblUsernameid);
+		addTfLabel(lblUsernameid, unameLblOffsetY);
+
+		addTfLabel(new JLabel("Password"), pwLblOffSetY);
 		
-		JLabel label_2 = new JLabel("Password");
-		label_2.setFont(fontLabelSmall);
-		label_2.setForeground(Color.WHITE);
-		label_2.setBounds(43, 120, 88, 14);
-		contentPane.add(label_2);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBackground(Color.DARK_GRAY);
-		separator.setForeground(Color.WHITE);
-		separator.setBounds(41, 101, 178, 2);
-		contentPane.add(separator);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setForeground(Color.WHITE);
-		separator_1.setBackground(Color.DARK_GRAY);
-		separator_1.setBounds(44, 162, 178, 2);
-		contentPane.add(separator_1);
+		addSeparator(sep1OffsetX, sep1OffSetY);
+		addSeparator(sep2OffSetX, sep2OffSetY);
 		
 		JLabel lblClose = new JLabel("Close");
-		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblClose.setForeground(SystemColor.activeCaptionBorder);
-		lblClose.setFont(fontLabelLarge);
-		lblClose.setBounds(188, 24, 53, 20);
-		lblClose.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				dispose();
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblClose.setText("<HTML><U><B>Close</B></U></HTML>");
-				lblClose.setForeground(Color.RED);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblClose.setText("<HTML>Close</HTML>");
-				lblClose.setForeground(SystemColor.activeCaptionBorder);
-			}
-		});
-		contentPane.add(lblClose);
+		addLabel(new LabelMouseAdapter(lblClose, Color.RED), lblCloseOffsetY);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\eclipse-workspace\\documentManagement\\src\\logo.png"));
-		label.setBounds(19, 13, 82, 30);
+		JLabel imageLabel = new JLabel("");
+		imageLabel.setIcon(BaseGUI.icon);
+		imageLabel.setBounds(imageWidth, imageHeight, imageOffsetX, imageOffsetY);
+		contentPane.add(imageLabel);
+	}
+	
+	private void addSeparator(int offsetX, int offSetY) {
+		JSeparator separator = new JSeparator();
+		separator.setBackground(separaratorBG);
+		separator.setForeground(separatorFG);
+		separator.setBounds(offsetX, offSetY, separatorWidth, separatorHeight);
+		contentPane.add(separator);
+	}
+	
+	private void addTextField(JTextField textField, int offSetY) {
+		textField.setForeground(textfieldFG);
+		textField.setBackground(textfieldBG);
+		textField.setBounds(textFieldOffsetX, offSetY, textfieldWidth, textfieldHeight);
+		textField.setBorder(textfieldBorder);
+		textField.setCaretColor(textfieldCaretColor);
+		contentPane.add(textField);
+	}
+	
+	private void addTfLabel(JLabel label, int offsetY) {
+		label.setFont(BaseGUI.fontSmallBold);
+		label.setForeground(tfLabelFG);
+		label.setBounds(tfLabelOffsetX, offsetY, tfLblWidth, tfLblHeight);
 		contentPane.add(label);
 	}
+	
+	private void addLabel(LabelMouseAdapter l, int lblOffsetY) {
+		JLabel label = l.label;
+		label.setHorizontalAlignment(SwingConstants.TRAILING);
+		label.setForeground(SystemColor.activeCaptionBorder);
+		label.setFont(BaseGUI.fontLargeTNR);
+		label.setBounds(lblOffsetX, lblOffsetY, lblWidth, lblHeight);
+		label.addMouseListener(l);
+		contentPane.add(label);
+	}
+
+	class LabelMouseAdapter extends MouseAdapter {
+		JLabel label;
+		Color mouseEnteredFG;
+		
+		LabelMouseAdapter(JLabel label, Color mouseEnteredFG){
+			this.label = label; 
+			this.mouseEnteredFG = mouseEnteredFG;
+		}
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			dispose();
+		}
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			label.setText("<HTML><U><B>" + label.getText() + "</B></U></HTML>");
+			label.setForeground(mouseEnteredFG);
+		}
+		@Override
+		public void mouseExited(MouseEvent e) {
+			label.setText("<HTML>" + label.getText() + "</HTML>");
+			label.setForeground(SystemColor.activeCaptionBorder);
+		}
+	}
+	
+	class SignUpMouseAdapter extends LabelMouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			SignUpGUI signup = new SignUpGUI();
+			signup.setVisible(true);
+			setVisible(false);
+			super.mouseClicked(e);
+		}
+		
+		SignUpMouseAdapter(JLabel label, Color mouseEnteredFG){
+			super(label, mouseEnteredFG);
+		}
+	}	
 }

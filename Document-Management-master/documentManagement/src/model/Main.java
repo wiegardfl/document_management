@@ -10,7 +10,6 @@ public class Main {
 		
 		//Opening the Login Page
 		LoginPageGUI login=new LoginPageGUI();
-		login.setVisible(true);
-		
+		login.setVisible(true);	
 	}
 }

@@ -16,7 +16,7 @@ import database.Database;
 import model.Document;
 import model.Profile;
 
-public class DocumentResultPanelGUI extends JPanel{
+public class DocumentResultPanelGUI extends JPanel {
 	/**
 	 * 
 	 */
@@ -43,25 +43,25 @@ public class DocumentResultPanelGUI extends JPanel{
 		
 		label = new JLabel("Title:");
 		label.setBounds(10, 11, 42, 14);
-		label.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label.setFont(BaseGUI.fontTinyBold);
 		add(label);
 		
 		lblTitles = new JLabel(current.getTitle());
 		lblTitles.setBounds(62, 11, 272, 14);
-		lblTitles.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblTitles.setFont(BaseGUI.fontTiny);
 		add(lblTitles);
 		
 		
 		label_1 = new JLabel("Creator/Uploader:");
 		label_1.setBounds(10, 36, 108, 14);
-		label_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_1.setFont(BaseGUI.fontTinyBold);
 		add(label_1);
 		
 		Profile creator=Database.searchProfileByUserID(current.getUser_id());
 		
 		lblCreator = new JLabel(creator.getFirstName()+" "+creator.getLastName());
 		lblCreator.setBounds(128, 36, 206, 14);
-		lblCreator.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblCreator.setFont(BaseGUI.fontTiny);
 		add(lblCreator);
 		
 		lblDetails = new JLabel("More Detials");
@@ -90,11 +90,11 @@ public class DocumentResultPanelGUI extends JPanel{
 
 		label_2 = new JLabel("Date:");
 		label_2.setBounds(10, 61, 46, 14);
-		label_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_2.setFont(BaseGUI.fontTinyBold);
 		add(label_2);
 		
 		lblDate = new JLabel(current.getUploaded_date());
-		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblDate.setFont(BaseGUI.fontTiny);
 		lblDate.setBounds(62, 61, 80, 14);
 		add(lblDate);
 		
@@ -111,7 +111,7 @@ public class DocumentResultPanelGUI extends JPanel{
 		add(separator_2);
 		
 		JLabel lblType = new JLabel("<html><u>"+current.getDoc_type()+"</u></html>");
-		lblType.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblType.setFont(BaseGUI.fontSmallBold);
 		lblType.setBounds(164, 61, 93, 14);
 		add(lblType);
 		setColor(Color.BLACK);

@@ -149,7 +149,7 @@ public class DashboardGUI extends JFrame {
 		viewAvailableNoticePanel.setLayout(null);
 		
 		lblNewLabel_1 = new JLabel("Available Notices");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setFont(BaseGUI.fontHugeBold);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(0, 11, 384, 35);
 		viewAvailableNoticePanel.add(lblNewLabel_1);
@@ -172,7 +172,7 @@ public class DashboardGUI extends JFrame {
 		searchDocumentPanel.setVisible(false);
 		
 		JLabel lblSearchDocument = new JLabel("Search Document");
-		lblSearchDocument.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblSearchDocument.setFont(BaseGUI.fontLargeBold);
 		lblSearchDocument.setBounds(68, 11, 146, 24);
 		searchDocumentPanel.add(lblSearchDocument);
 		
@@ -251,7 +251,7 @@ public class DashboardGUI extends JFrame {
 		publicationAddPanel.setVisible(false);
 		
 		JLabel lblNewLabel_2 = new JLabel("Journal where published");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2.setFont(BaseGUI.fontTinyBold);
 		lblNewLabel_2.setBounds(0, 0, 155, 14);
 		publicationAddPanel.add(lblNewLabel_2);
 		
@@ -275,7 +275,7 @@ public class DashboardGUI extends JFrame {
 		publicationAddPanel2.setVisible(false);
 		
 		lblNumberOfCitations = new JLabel("Number of Citations");
-		lblNumberOfCitations.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNumberOfCitations.setFont(BaseGUI.fontTinyBold);
 		lblNumberOfCitations.setBounds(0, 0, 155, 14);
 		publicationAddPanel2.add(lblNumberOfCitations);
 		
@@ -292,7 +292,7 @@ public class DashboardGUI extends JFrame {
 		publicationAddPanel2.add(separator_6);
 		
 		lblImpactFactorOf = new JLabel("Impact Factor of Journal");
-		lblImpactFactorOf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblImpactFactorOf.setFont(BaseGUI.fontTinyBold);
 		lblImpactFactorOf.setBounds(0, 60, 155, 14);
 		publicationAddPanel2.add(lblImpactFactorOf);
 		
@@ -310,7 +310,7 @@ public class DashboardGUI extends JFrame {
 		
 		lblNewLabel_3 = new JLabel("Publication Date (dd-MM-yyyy)");
 		lblNewLabel_3.setForeground(Color.BLACK);
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_3.setFont(BaseGUI.fontTinyBold);
 		lblNewLabel_3.setBounds(0, 120, 188, 14);
 		publicationAddPanel2.add(lblNewLabel_3);
 		
@@ -351,7 +351,7 @@ public class DashboardGUI extends JFrame {
 		noticeAddPanel.add(label_3);
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		label_3.setForeground(Color.BLACK);
-		label_3.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_3.setFont(BaseGUI.fontLargeBold);
 		
 		separator_2 = new JSeparator();
 		separator_2.setBounds(146, 52, 108, 2);
@@ -370,13 +370,13 @@ public class DashboardGUI extends JFrame {
 		label_4.setBounds(0, 0, 100, 20);
 		noticeAddPanel.add(label_4);
 		label_4.setForeground(Color.BLACK);
-		label_4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_4.setFont(BaseGUI.fontTinyBold);
 		
 		label_5 = new JLabel("Valid Till");
 		label_5.setBounds(146, 0, 100, 20);
 		noticeAddPanel.add(label_5);
 		label_5.setForeground(Color.BLACK);
-		label_5.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_5.setFont(BaseGUI.fontTinyBold);
 		
 		noticeAddPanel2 = new JPanel();
 		noticeAddPanel2.setBackground(Color.WHITE);
@@ -389,7 +389,7 @@ public class DashboardGUI extends JFrame {
 		label_1.setBounds(0, 0, 127, 20);
 		noticeAddPanel2.add(label_1);
 		label_1.setForeground(Color.BLACK);
-		label_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_1.setFont(BaseGUI.fontTinyBold);
 		
 		facultyCheckBox = new JCheckBox("Faculty");
 		facultyCheckBox.setBounds(2, 20, 72, 23);
@@ -531,7 +531,7 @@ public class DashboardGUI extends JFrame {
 		
 		label_2 = new JLabel("Document Type");
 		label_2.setForeground(Color.BLACK);
-		label_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_2.setFont(BaseGUI.fontTinyBold);
 		label_2.setBounds(39, 133, 100, 20);
 		uploadDocumentsPanel.add(label_2);
 		
@@ -575,7 +575,7 @@ public class DashboardGUI extends JFrame {
 		
 		label_6 = new JLabel("Choose File");
 		label_6.setForeground(Color.BLACK);
-		label_6.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_6.setFont(BaseGUI.fontTinyBold);
 		label_6.setBounds(39, 273, 100, 20);
 		uploadDocumentsPanel.add(label_6);
 		
@@ -594,14 +594,14 @@ public class DashboardGUI extends JFrame {
 		
 		lblDocumentTitle = new JLabel("Document Title");
 		lblDocumentTitle.setForeground(Color.BLACK);
-		lblDocumentTitle.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDocumentTitle.setFont(BaseGUI.fontTinyBold);
 		lblDocumentTitle.setBounds(39, 63, 100, 20);
 		uploadDocumentsPanel.add(lblDocumentTitle);
 		
 		lblUploadADocument = new JLabel("Upload a Document");
 		lblUploadADocument.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUploadADocument.setForeground(Color.BLACK);
-		lblUploadADocument.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblUploadADocument.setFont(BaseGUI.fontHUGEbold);
 		lblUploadADocument.setBounds(112, 22, 163, 30);
 		uploadDocumentsPanel.add(lblUploadADocument);
 		
@@ -757,7 +757,7 @@ public class DashboardGUI extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton.setFont(BaseGUI.fontMedium);
 		btnNewButton.setBounds(114, 531, 153, 28);
 		uploadDocumentsPanel.add(btnNewButton);
 		
@@ -769,7 +769,7 @@ public class DashboardGUI extends JFrame {
 		
 		lblSubmittedDocuments = new JLabel("Submitted Documents");
 		lblSubmittedDocuments.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSubmittedDocuments.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblSubmittedDocuments.setFont(BaseGUI.fontHUGE);
 		lblSubmittedDocuments.setBounds(10, 11, 363, 38);
 		viewSubmittedDocumentsPanel.add(lblSubmittedDocuments);
 		
@@ -793,7 +793,7 @@ public class DashboardGUI extends JFrame {
 		searchUserPanel.setVisible(false);
 		
 		JLabel lblSearchUser = new JLabel("Search User");
-		lblSearchUser.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblSearchUser.setFont(BaseGUI.fontLargeBold);
 		lblSearchUser.setBounds(64, 11, 126, 24);
 		searchUserPanel.add(lblSearchUser);
 		
@@ -882,7 +882,7 @@ public class DashboardGUI extends JFrame {
 		label = new JLabel("");
 		label.setBounds(10, 4, 82, 30);
 		DashboardPanel.add(label);
-		label.setIcon(new ImageIcon("D:\\eclipse-workspace\\documentManagement\\src\\logo.png"));
+		label.setIcon(BaseGUI.icon);
 		
 		tglbtnUploadANew = new JToggleButton("              Upload a new Document");
 		toggleButtonGroup.add(tglbtnUploadANew);
@@ -958,7 +958,7 @@ public class DashboardGUI extends JFrame {
 		btnProfile.setFocusPainted(false);
 		
 		JLabel lblLogout = new JLabel("Logout");
-		lblLogout.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLogout.setFont(BaseGUI.fontLarge);
 		lblLogout.setForeground(Color.LIGHT_GRAY);
 		lblLogout.setBounds(193, 45, 55, 23);
 		DashboardPanel.add(lblLogout);
@@ -1034,7 +1034,7 @@ public class DashboardGUI extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Welcome "+Database.getCurrentProfile().getFirstName());
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel.setFont(BaseGUI.fontHeader);
 		lblNewLabel.setBounds(10, 91, 356, 89);
 		welcomePanel.add(lblNewLabel);
 		
@@ -1078,7 +1078,7 @@ public class DashboardGUI extends JFrame {
 			lblSubmittedDocuments.setText("Submitted Documents by "+p.getFirstName()+" "+p.getLastName());
 		else
 			lblSubmittedDocuments.setText("My Submitted Documents");
-		lblSubmittedDocuments.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblSubmittedDocuments.setFont(BaseGUI.fontHUGEbold);
 		Component[] components=showSumittedDocumentsResultPanel.getComponents();
 		for(Component c:components) {
 			remove(c);
@@ -1108,7 +1108,7 @@ public class DashboardGUI extends JFrame {
 		uploadDocumentsPanel.setVisible(false);
 		viewSubmittedDocumentsPanel.setVisible(false);
 		viewAvailableNoticePanel.setVisible(true);
-		lblSubmittedDocuments.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblSubmittedDocuments.setFont(BaseGUI.fontHUGEbold);
 		Component[] components=showAvailableNoticeResultPanel.getComponents();
 		for(Component c:components) {
 			remove(c);

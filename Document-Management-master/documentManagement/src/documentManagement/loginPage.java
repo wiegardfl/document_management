@@ -24,6 +24,8 @@ import java.awt.SystemColor;
 import javax.swing.border.LineBorder;
 import javax.swing.ImageIcon;
 
+import GUI.BaseGUI;
+
 public class loginPage extends JFrame {
 
 	private JPanel contentPane;
@@ -47,7 +49,7 @@ public class loginPage extends JFrame {
 		JLabel lblSignIn = new JLabel("<HTML>Sign Up</HTML>");
 		lblSignIn.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblSignIn.setForeground(SystemColor.activeCaptionBorder);
-		lblSignIn.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblSignIn.setFont(BaseGUI.fontLargeTNR);
 		lblSignIn.setBounds(188, 232, 53, 20);
 		contentPane.add(lblSignIn);
 		lblSignIn.addMouseListener(new MouseAdapter() {
@@ -71,7 +73,7 @@ public class loginPage extends JFrame {
 		});
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnLogin.setFont(BaseGUI.fontMedium);
 		btnLogin.setBackground(Color.GRAY);
 		btnLogin.setForeground(SystemColor.text);
 		btnLogin.setBounds(50, 192, 171, 30);
@@ -111,7 +113,7 @@ public class loginPage extends JFrame {
 		contentPane.add(usernameTF);
 		
 		JLabel label_1 = new JLabel("Username");
-		label_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		label_1.setFont(BaseGUI.fontSmallBold);
 		label_1.setForeground(Color.WHITE);
 		label_1.setHorizontalAlignment(SwingConstants.LEFT);
 		label_1.setBackground(Color.WHITE);
@@ -119,7 +121,7 @@ public class loginPage extends JFrame {
 		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("Password");
-		label_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		label_2.setFont(BaseGUI.fontSmallBold);
 		label_2.setForeground(Color.WHITE);
 		label_2.setBounds(43, 120, 88, 14);
 		contentPane.add(label_2);
@@ -139,7 +141,7 @@ public class loginPage extends JFrame {
 		JLabel lblClose = new JLabel("Close");
 		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblClose.setForeground(SystemColor.activeCaptionBorder);
-		lblClose.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblClose.setFont(BaseGUI.fontLargeTNR);
 		lblClose.setBounds(188, 24, 53, 20);
 		lblClose.addMouseListener(new MouseAdapter() {
 			@Override
@@ -160,7 +162,7 @@ public class loginPage extends JFrame {
 		contentPane.add(lblClose);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\logo.png"));
+		label.setIcon(new ImageIcon("src\\logo.png"));
 		label.setBounds(19, 13, 82, 30);
 		contentPane.add(label);
 	}

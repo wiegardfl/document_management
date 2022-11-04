@@ -59,7 +59,7 @@ public class UserDetailsPanel extends JPanel {
 		label_7.setBounds(1, 0, 77, 24);
 		detailsPanel.add(label_7);
 		label_7.setForeground(Color.BLACK);
-		label_7.setFont(new Font("Tahoma", Font.BOLD, 12));
+		label_7.setFont(BaseGUI.fontSmallBold);
 		
 		userFirstNameTF = new JTextField();
 		userFirstNameTF.setBounds(4, 26, 241, 24);
@@ -81,7 +81,7 @@ public class UserDetailsPanel extends JPanel {
 		lblLastname.setBounds(0, 63, 87, 24);
 		detailsPanel.add(lblLastname);
 		lblLastname.setForeground(Color.BLACK);
-		lblLastname.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblLastname.setFont(BaseGUI.fontSmallBold);
 		
 		userLastNameTF = new JTextField();
 		userLastNameTF.setBounds(5, 89, 241, 24);
@@ -103,7 +103,7 @@ public class UserDetailsPanel extends JPanel {
 		lblId.setBounds(0, 126, 102, 24);
 		detailsPanel.add(lblId);
 		lblId.setForeground(Color.BLACK);
-		lblId.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblId.setFont(BaseGUI.fontSmallBold);
 		
 		userIDTF = new JTextField();
 		userIDTF.setBounds(5, 152, 241, 24);
@@ -125,7 +125,7 @@ public class UserDetailsPanel extends JPanel {
 		lblType.setBounds(0, 189, 102, 24);
 		detailsPanel.add(lblType);
 		lblType.setForeground(Color.BLACK);
-		lblType.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblType.setFont(BaseGUI.fontSmallBold);
 		
 		userTypeTF = new JTextField();
 		userTypeTF.setBounds(5, 215, 241, 24);
@@ -147,7 +147,7 @@ public class UserDetailsPanel extends JPanel {
 		lblUserDepartment.setBounds(1, 252, 139, 24);
 		detailsPanel.add(lblUserDepartment);
 		lblUserDepartment.setForeground(Color.BLACK);
-		lblUserDepartment.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblUserDepartment.setFont(BaseGUI.fontSmallBold);
 		
 		userDepartmentTF = new JTextField();
 		userDepartmentTF.setBounds(6, 278, 241, 24);
@@ -176,7 +176,7 @@ public class UserDetailsPanel extends JPanel {
 		lblYear.setBounds(0, 0, 102, 24);
 		yearUserDetailsPanel.add(lblYear);
 		lblYear.setForeground(Color.BLACK);
-		lblYear.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblYear.setFont(BaseGUI.fontSmallBold);
 		
 		userYearTF = new JTextField();
 		userYearTF.setBounds(5, 26, 241, 24);
@@ -291,25 +291,25 @@ class ResultPanel extends JPanel{
 		JLabel lblNewLabel_1 = new JLabel("Name");
 		lblNewLabel_1.setBounds(10, 6, 46, 14);
 		add(lblNewLabel_1);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_1.setFont(BaseGUI.fontTinyBold);
 		lblNewLabel_1.setForeground(Color.BLACK);
 		
 		JLabel lblNewLabel = new JLabel(p.getFirstName()+" "+p.getLastName());
 		lblNewLabel.setBounds(66, 6, 129, 14);
 		add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel.setFont(BaseGUI.fontTiny);
 		lblNewLabel.setForeground(Color.BLACK);
 		
 		JLabel lblId_1 = new JLabel("ID");
 		lblId_1.setBounds(205, 6, 46, 14);
 		add(lblId_1);
-		lblId_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblId_1.setFont(BaseGUI.fontTinyBold);
 		lblId_1.setForeground(Color.BLACK);
 		
 		JLabel lblNewLabel_2 = new JLabel(""+p.getID());
 		lblNewLabel_2.setBounds(261, 6, 46, 14);
 		add(lblNewLabel_2);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_2.setFont(BaseGUI.fontTiny);
 		lblNewLabel_2.setForeground(Color.BLACK);
 	}
 }

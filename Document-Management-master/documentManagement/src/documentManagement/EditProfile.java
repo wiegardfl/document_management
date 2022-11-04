@@ -145,7 +145,7 @@ public class EditProfile extends JFrame {
 		contentPane.add(separator);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\logo.png"));
+		label.setIcon(new ImageIcon("src\\logo.png"));
 		label.setBounds(14, 10, 82, 30);
 		contentPane.add(label);
 		

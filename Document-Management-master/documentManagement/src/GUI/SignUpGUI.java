@@ -61,7 +61,7 @@ public class SignUpGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("First Name");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setFont(BaseGUI.fontSmallBold);
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setBounds(57, 52, 77, 24);
 		contentPane.add(lblNewLabel);
@@ -77,7 +77,7 @@ public class SignUpGUI extends JFrame {
 		
 		JLabel lblUsername = new JLabel("Username / ID");
 		lblUsername.setForeground(Color.WHITE);
-		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblUsername.setFont(BaseGUI.fontSmallBold);
 		lblUsername.setBounds(56, 176, 102, 24);
 		contentPane.add(lblUsername);
 		
@@ -91,7 +91,7 @@ public class SignUpGUI extends JFrame {
 		usernameTF.setCaretColor(Color.WHITE);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblPassword.setFont(BaseGUI.fontSmallBold);
 		lblPassword.setForeground(Color.WHITE);
 		lblPassword.setBounds(56, 238, 77, 24);
 		contentPane.add(lblPassword);
@@ -113,7 +113,7 @@ public class SignUpGUI extends JFrame {
 		
 		JLabel lblDepartment = new JLabel("Department");
 		lblDepartment.setForeground(Color.WHITE);
-		lblDepartment.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDepartment.setFont(BaseGUI.fontSmallBold);
 		lblDepartment.setBounds(58, 362, 111, 24);
 		lblDepartment.setVisible(false);
 		contentPane.add(lblDepartment);
@@ -127,13 +127,13 @@ public class SignUpGUI extends JFrame {
 		
 		JLabel lblYear = new JLabel("Year");
 		lblYear.setForeground(Color.WHITE);
-		lblYear.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblYear.setFont(BaseGUI.fontSmallBold);
 		lblYear.setBounds(192, 362, 112, 24);
 		lblYear.setVisible(false);
 		contentPane.add(lblYear);
 		
 		JButton btnSignUp = new JButton("Sign Up");
-		btnSignUp.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnSignUp.setFont(BaseGUI.fontMedium);
 		btnSignUp.setForeground(Color.WHITE);
 		btnSignUp.setBackground(Color.GRAY);
 		btnSignUp.addActionListener(new ActionListener() {
@@ -190,7 +190,7 @@ public class SignUpGUI extends JFrame {
 		btnSignUp.setFocusPainted(false);
 		
 		JLabel lblDesignation = new JLabel("Type");
-		lblDesignation.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDesignation.setFont(BaseGUI.fontSmallBold);
 		lblDesignation.setForeground(Color.WHITE);
 		lblDesignation.setBounds(57, 300, 87, 24);
 		contentPane.add(lblDesignation);
@@ -205,7 +205,7 @@ public class SignUpGUI extends JFrame {
 		contentPane.add(lastNameTF);
 		
 		JLabel lblLastName = new JLabel("LastName");
-		lblLastName.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblLastName.setFont(BaseGUI.fontSmallBold);
 		lblLastName.setForeground(Color.WHITE);
 		lblLastName.setBounds(56, 114, 87, 24);
 		contentPane.add(lblLastName);
@@ -213,7 +213,7 @@ public class SignUpGUI extends JFrame {
 		JLabel goback = new JLabel("<HTML>Previous</HTML>");
 		goback.setHorizontalAlignment(SwingConstants.TRAILING);
 		goback.setForeground(SystemColor.activeCaptionBorder);
-		goback.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		goback.setFont(BaseGUI.fontLargeTNR);
 		goback.setBounds(242, 478, 77, 20);
 		contentPane.add(goback);
 		goback.addMouseListener(new MouseAdapter() {
@@ -243,7 +243,7 @@ public class SignUpGUI extends JFrame {
 		contentPane.add(separator);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("D:\\eclipse-workspace\\documentManagement\\src\\logo.png"));
+		label.setIcon(BaseGUI.icon);
 		label.setBounds(14, 10, 82, 30);
 		contentPane.add(label);
 		
@@ -256,7 +256,7 @@ public class SignUpGUI extends JFrame {
 		JLabel lblClose = new JLabel("Close");
 		lblClose.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblClose.setForeground(SystemColor.activeCaptionBorder);
-		lblClose.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblClose.setFont(BaseGUI.fontLargeTNR);
 		lblClose.setBounds(266, 24, 53, 20);
 		lblClose.addMouseListener(new MouseAdapter() {
 			@Override
