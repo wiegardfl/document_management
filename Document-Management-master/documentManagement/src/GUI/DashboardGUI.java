@@ -48,7 +48,6 @@ import javax.swing.JScrollPane;
 public class DashboardGUI extends JFrameBaseForGUI {
 
 	private JPanel contentPane;
-	private JPanel DashboardPanel;
 	private JPanel uploadDocumentsPanel;
 	JLabel label;
 	JToggleButton tglbtnUploadANew;
@@ -90,7 +89,6 @@ public class DashboardGUI extends JFrameBaseForGUI {
 	private JPanel branchPanel;
 	private JPanel yearPanel;
 	private JButton btnNewButton;
-	private final ButtonGroup toggleButtonGroup = new ButtonGroup();
 	private JFileChooser fileChooser;
 	private JCheckBox electronicsCheckBox;
 	private JCheckBox computersCheckBox;
@@ -127,6 +125,10 @@ public class DashboardGUI extends JFrameBaseForGUI {
 	private JTextField publicationDateTF;
 	private JSeparator separator_8;
 	
+	private DocumentInfo docInfo = new DocumentInfo();
+	private DocumentProperties docProps = new DocumentProperties();
+	private DashboardPanel dashboardPanel;
+	
 	/**
 	 * Create the frame.
 	 */
@@ -140,7 +142,7 @@ public class DashboardGUI extends JFrameBaseForGUI {
 		contentPane.setLayout(null);
 		setUndecorated(true);
 		
-		fileChooser=new JFileChooser("C:\\Users\\fwiegard");
+		fileChooser=new JFileChooser("/home/bravoechonov/Schreibtisch");
 		
 		viewAvailableNoticePanel = new JPanel();
 		viewAvailableNoticePanel.setBounds(255, 0, 384, 580);
@@ -608,6 +610,11 @@ public class DashboardGUI extends JFrameBaseForGUI {
 		btnNewButton = new JButton("Add Document");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				docInfo.doc_id = -1;
+				docInfo.user_id = Database.getCurrentProfile().getID();
+				docInfo.uploaded_date = "";
+				
 				try {
 					String title=titleTF.getText();
 					if(title.equals("")) {
@@ -618,6 +625,11 @@ public class DashboardGUI extends JFrameBaseForGUI {
 						throw new Exception("Select a File");
 					}
 					String type=(String) doctypeCB.getSelectedItem();
+					
+					docProps.title = title;
+					docProps.doc_type = type;
+					docProps.extension = path;
+					
 					if(type.equals("Publication")) {
 						String journal=journalTF.getText();
 						int impactFactor=0,citations=0;
@@ -645,7 +657,9 @@ public class DashboardGUI extends JFrameBaseForGUI {
 						catch(NumberFormatException ne) {
 							throw new Exception("Impact Factor/Number of Citations must be positive integers");
 						}
-						Publication p=new Publication(-1, Database.getCurrentProfile().getID(),title,type,"", path, published_date, journal, impactFactor,citations);
+						
+						Publication p=new Publication(docInfo, docProps, published_date, journal, impactFactor,citations);
+						
 						Database.addDocument(p,path);
 					}
 					else if(type.equals("Notice")) {
@@ -723,7 +737,7 @@ public class DashboardGUI extends JFrameBaseForGUI {
 							}
 						}
 						
-						Notice n=new Notice(-1, Database.getCurrentProfile().getID(),title,type,"", path, validfrom, validtill);
+						Notice n=new Notice(docInfo, docProps, validfrom, validtill);
 						Database.addDocument(n,path);
 						Database.addNoticeAudience(((Document)n).getDoc_id(), departments, branchs, years);
 					}
@@ -872,159 +886,17 @@ public class DashboardGUI extends JFrameBaseForGUI {
 		btnSearch.setBounds(143, 107, 89, 23);
 		searchUserPanel.add(btnSearch);
 		
-		
-		DashboardPanel = new JPanel();
-		DashboardPanel.setBackground(Color.DARK_GRAY);
-		DashboardPanel.setBounds(0, 0, 254, 580);
-		contentPane.add(DashboardPanel);
-		DashboardPanel.setLayout(null);
-		
-		label = new JLabel("");
-		label.setBounds(10, 4, 82, 30);
-		DashboardPanel.add(label);
-		label.setIcon(new ImageIcon("D:\\eclipse-workspace\\documentManagement\\src\\logo.png"));
-		
-		tglbtnUploadANew = new JToggleButton("              Upload a new Document");
-		toggleButtonGroup.add(tglbtnUploadANew);
-		tglbtnUploadANew.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				uploadDocumentsPanel.setVisible(tglbtnUploadANew.isSelected());
-				searchDocumentPanel.setVisible(false);
-				searchUserPanel.setVisible(false);
-				viewSubmittedDocumentsPanel.setVisible(false);
-				viewAvailableNoticePanel.setVisible(false);
-				welcomePanel.setVisible(false);
-			}
-		});
-		tglbtnUploadANew.setHorizontalAlignment(SwingConstants.LEFT);
-		tglbtnUploadANew.setBackground(Color.DARK_GRAY);
-		tglbtnUploadANew.setForeground(Color.WHITE);
-		tglbtnUploadANew.setBounds(0, 255, 256, 47);
-		DashboardPanel.add(tglbtnUploadANew);
-		tglbtnUploadANew.setBorder(null);
-		
-		tglbtnVeiwableNotice = new JToggleButton("              View available notices");
-		toggleButtonGroup.add(tglbtnVeiwableNotice);
-		tglbtnVeiwableNotice.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				welcomePanel.setVisible(false);
-				viewAvailableNoticePanel.setVisible(tglbtnVeiwableNotice.isSelected());
-				Component[] components=showAvailableNoticeResultPanel.getComponents();
-				for(Component c:components) {
-					remove(c);
-					c.setVisible(false);
-				}
-				showAvailableNoticeList();
-			}
-		});
-		tglbtnVeiwableNotice.setHorizontalAlignment(SwingConstants.LEFT);
-		tglbtnVeiwableNotice.setForeground(Color.WHITE);
-		tglbtnVeiwableNotice.setBackground(Color.DARK_GRAY);
-		tglbtnVeiwableNotice.setBounds(0, 302, 256, 47);
-		DashboardPanel.add(tglbtnVeiwableNotice);
-		tglbtnVeiwableNotice.setFocusPainted(false);
-		tglbtnVeiwableNotice.setBorder(null);
-		tglbtnViewSubmittedDocuments = new JToggleButton("              View Submitted Documents");
-		tglbtnViewSubmittedDocuments.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {
+		// ToDo: Implementierung Woche 3
+		contentPane.add();
+		dashboardPanel = new DashboardPanel(toggleButtonGroup);
+		dashboardPanel.setSearchDocumentPanelHandler(new IPanelUpdateHandler() {
+			
+			@Override
+			public void Visualize(JToggleButton selectedBtn) {
+				// TODO Auto-generated method stub
 				
-				viewSubmittedDocumentsPanel.setVisible(tglbtnViewSubmittedDocuments.isSelected());
-				if(tglbtnViewSubmittedDocuments.isSelected()) {					
-					showDocumentList(Database.getCurrentProfile().getID(), false);					
-				}
 			}
 		});
-		toggleButtonGroup.add(tglbtnViewSubmittedDocuments);
-		tglbtnViewSubmittedDocuments.setHorizontalAlignment(SwingConstants.LEFT);
-		tglbtnViewSubmittedDocuments.setForeground(Color.WHITE);
-		tglbtnViewSubmittedDocuments.setBackground(Color.DARK_GRAY);
-		tglbtnViewSubmittedDocuments.setBounds(0, 349, 256, 47);
-		DashboardPanel.add(tglbtnViewSubmittedDocuments);
-		tglbtnViewSubmittedDocuments.setFocusPainted(false);
-		tglbtnViewSubmittedDocuments.setBorder(null);
-		
-		btnProfile = new JButton("Profile");
-		btnProfile.setBackground(Color.GRAY);
-		btnProfile.setForeground(Color.WHITE);
-		btnProfile.setBounds(155, 11, 89, 23);
-		DashboardPanel.add(btnProfile);
-		btnProfile.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				ProfileGUI profilepage=new ProfileGUI();
-				profilepage.setVisible(true);
-				dispose();
-			}
-		});
-		btnProfile.setFocusPainted(false);
-		
-		JLabel lblLogout = new JLabel("Logout");
-		lblLogout.setFont(Font_Tahoma_Plain_Size14);
-		lblLogout.setForeground(Color.LIGHT_GRAY);
-		lblLogout.setBounds(193, 45, 55, 23);
-		DashboardPanel.add(lblLogout);
-		lblLogout.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				LoginPageGUI login=new LoginPageGUI();
-				login.setVisible(true);
-				dispose();
-			}
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				lblLogout.setText("<HTML><U><B>Logout</B></U></HTML>");
-				lblLogout.setForeground(Color.RED);
-			}
-			@Override
-			public void mouseExited(MouseEvent e) {
-				lblLogout.setText("<HTML>Logout</HTML>");
-				lblLogout.setForeground(Color.WHITE);
-			}
-		});
-		
-		JToggleButton toggleSearchUserButton = new JToggleButton("               Search User");
-		toggleSearchUserButton.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				searchUserPanel.setVisible(toggleSearchUserButton.isSelected());
-				searchDocumentPanel.setVisible(false);
-				uploadDocumentsPanel.setVisible(false);
-				viewSubmittedDocumentsPanel.setVisible(false);
-				viewAvailableNoticePanel.setVisible(false);
-			}
-		});
-		toggleButtonGroup.add(toggleSearchUserButton);
-		toggleSearchUserButton.setHorizontalAlignment(SwingConstants.LEFT);
-		toggleSearchUserButton.setForeground(Color.WHITE);
-		toggleSearchUserButton.setFocusPainted(false);
-		toggleSearchUserButton.setBorder(null);
-		toggleSearchUserButton.setBackground(Color.DARK_GRAY);
-		toggleSearchUserButton.setBounds(0, 172, 256, 47);
-		DashboardPanel.add(toggleSearchUserButton);
-		
-		JToggleButton tglbtnSearchDocument = new JToggleButton("               Search Document");
-		tglbtnSearchDocument.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				searchUserPanel.setVisible(false);
-				uploadDocumentsPanel.setVisible(false);
-				viewSubmittedDocumentsPanel.setVisible(false);
-				viewAvailableNoticePanel.setVisible(false);
-				searchDocumentPanel.setVisible(tglbtnSearchDocument.isSelected());
-				if(tglbtnSearchDocument.isSelected()) {
-					Component[] components=showDocumentSearchResultPanel.getComponents();
-					for(Component c:components) {
-						c.setVisible(false);
-						remove(c);
-					}
-				}
-			}
-		});
-		toggleButtonGroup.add(tglbtnSearchDocument);
-		tglbtnSearchDocument.setHorizontalAlignment(SwingConstants.LEFT);
-		tglbtnSearchDocument.setForeground(Color.WHITE);
-		tglbtnSearchDocument.setFocusPainted(false);
-		tglbtnSearchDocument.setBorder(null);
-		tglbtnSearchDocument.setBackground(Color.DARK_GRAY);
-		tglbtnSearchDocument.setBounds(0, 125, 256, 47);
-		DashboardPanel.add(tglbtnSearchDocument);
 		
 		welcomePanel = new JPanel();
 		welcomePanel.setBackground(Color.WHITE);
@@ -1032,7 +904,8 @@ public class DashboardGUI extends JFrameBaseForGUI {
 		contentPane.add(welcomePanel);
 		welcomePanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Welcome "+Database.getCurrentProfile().getFirstName());
+//		JLabel lblNewLabel = new JLabel("Welcome "+Database.getCurrentProfile().getFirstName());
+		JLabel lblNewLabel = new JLabel("Welcome admin"); // ToDo: changed for testing, because no database is linked to this project
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(Font_Tahoma_Plain_Size25);
 		lblNewLabel.setBounds(10, 91, 356, 89);
@@ -1234,5 +1107,82 @@ public class DashboardGUI extends JFrameBaseForGUI {
 	    }
 	    return isTrueDate ;
 	}
+
+	public void Visualize(String selectedButton)
+	{
+		if (selectedButton.equals("tglbtnUploadANew"))
+		{
+			uploadDocumentsPanel.setVisible(true);
+			searchDocumentPanel.setVisible(false);
+			searchUserPanel.setVisible(false);
+			viewSubmittedDocumentsPanel.setVisible(false);
+			viewAvailableNoticePanel.setVisible(false);
+			welcomePanel.setVisible(false);
+		}
+		if (selectedButton.equals("tglbtnVeiwableNotice"))
+		{
+			welcomePanel.setVisible(false);
+			viewAvailableNoticePanel.setVisible(true);
+			Component[] components=showAvailableNoticeResultPanel.getComponents();
+			for(Component c:components) {
+				remove(c);
+				c.setVisible(false);
+			}
+			showAvailableNoticeList();
+		}
+		if (selectedButton.equals("tglbtnViewSubmittedDocuments"))
+		{
+			viewSubmittedDocumentsPanel.setVisible(true);			
+			showDocumentList(Database.getCurrentProfile().getID(), false);
+		}
+		if (selectedButton.equals("toggleSearchUserButton"))
+		{
+			searchUserPanel.setVisible(true);
+			searchDocumentPanel.setVisible(false);
+			uploadDocumentsPanel.setVisible(false);
+			viewSubmittedDocumentsPanel.setVisible(false);
+			viewAvailableNoticePanel.setVisible(false);
+		}
+		if (selectedButton.equals("tglbtnSearchDocument"))
+		{
+			searchUserPanel.setVisible(false);
+			uploadDocumentsPanel.setVisible(false);
+			viewSubmittedDocumentsPanel.setVisible(false);
+			viewAvailableNoticePanel.setVisible(false);
+			searchDocumentPanel.setVisible(true);
+			Component[] components=showDocumentSearchResultPanel.getComponents();
+			for(Component c:components) {
+				c.setVisible(false);
+				remove(c);
+			}
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
